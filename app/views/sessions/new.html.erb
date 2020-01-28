@@ -3,31 +3,35 @@
   <i class="circular users icon"></i>
   Login to continue
 </h2>
+
 <div class="ui placeholder segment">
   <div class="ui two column very relaxed stackable grid">
-    <div class="column">
-      <div class="ui form">
-        <div class="field">
-          <label>Username</label>
-          <div class="ui left icon input">
-            <input type="text" placeholder="Username">
-            <i class="user icon"></i>
+      <div class="column">
+        <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+        <div class="ui form">
+          <div class="field">
+            <%= f.label :username, "Username" %>
+            <div class="ui left icon input">
+              <%= f.text_field :username, placeholder:"Enter username" %>
+              <i class="user icon"></i>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label>Password</label>
-          <div class="ui left icon input">
-            <input type="password">
-            <i class="lock icon"></i>
+          <div class="field">
+            <%= f.label :password, "Password" %>
+            <div class="ui left icon input">
+              <%= f.password_field :password,placeholder: "Enter password", autocomplete: "off" %>
+              <i class="lock icon"></i>
+            </div>
           </div>
+          <%= f.submit "Log in", class:"ui blue submit button"%>
         </div>
-        <div class="ui blue submit button">Login</div>
+        <% end %>
+
       </div>
-    </div>
     <div class="middle aligned column">
-      <div class="ui big button">
+      <div class="ui orange big button">
         <i class="signup icon"></i>
-        Sign Up
+        <%= link_to "Sign up", signup_path %>
       </div>
     </div>
   </div>

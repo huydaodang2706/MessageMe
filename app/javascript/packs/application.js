@@ -24,3 +24,9 @@ import 'semantic-ui-sass';
 $(document).on('turbolinks:load',function(){
   $('.ui.dropdown').dropdown();
 })
+
+$(document).on('turbolinks:load',function(){
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').transition('fade');
+  });
+})
