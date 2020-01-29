@@ -1,0 +1,28 @@
+<h1 align="center">Welcome to MessageMe - A complete chat app</h1></br>
+<h2 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+  Sign up to continue
+</h2>
+<div class="ui inverted segment">
+  <div class="ui inverted form">
+    <%= form_for @user do |f| %>
+    <div class="two fields">
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username, placeholder: "Enter username", autofocus: true %>
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Enter password" %>
+      </div>
+    </div>
+    <div class="inline field">
+      <div class="ui checkbox">
+        <input type="checkbox" tabindex="0" class="hidden">
+        <label>I agree to the terms and conditions</label>
+      </div>
+    </div>
+    <%= f.submit "Sign up", class:"ui submit button"%>
+    <% end %>
+  </div>
+</div>
