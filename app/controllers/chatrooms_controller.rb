@@ -2,7 +2,7 @@ class ChatroomsController < ApplicationController
   before_action :require_user_redirect
   def index
     @message = Message.new
-    @messages = Message.all
+    @messages = Message.custom_display
   end
   private
   def require_user_redirect

@@ -5,9 +5,10 @@
 
 require("@rails/ujs").start()
 require("turbolinks").start()
+require("jquery")
 require("@rails/activestorage").start()
 require("channels")
-require("jquery")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -23,10 +24,14 @@ import 'semantic-ui-sass';
 
 $(document).on('turbolinks:load',function(){
   $('.ui.dropdown').dropdown();
-})
-
-$(document).on('turbolinks:load',function(){
   $('.message .close').on('click', function() {
     $(this).closest('.message').transition('fade');
+  });
+  $("#messages").scrollTop($("#messages")[0].scrollHeight);
+  $('#message_body').on('keydown', function(e) {
+    if (e.keyCode == 13) {
+      $('button').click();
+      e.target.value = "";
+    };
   });
 })
